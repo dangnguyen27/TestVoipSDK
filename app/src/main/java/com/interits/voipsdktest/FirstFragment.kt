@@ -48,7 +48,7 @@ class FirstFragment : Fragment() {
 //        }
 
         var token: String? = null
-        val uuid: UUID = UUID.randomUUID()
+        var uuid: UUID = UUID.randomUUID()
         lifecycleScope.launch {
             val res = DataService().loginSip(
                 "0973385522",
@@ -81,6 +81,7 @@ class FirstFragment : Fragment() {
             context?.let { it1 ->
 //                com.tc.voipsdk.Theme.getInstance(context).primaryColor = resources.getColor(com.tc.voipsdk.R.color.g99_colorPrimary)
 
+                VOIPSDK.getInstance(context).init(context,"1081",uuid.toString(),"0973385522","0973385522",null);
                 VOIPSDK.getInstance(context).call(context,"0975803515",true)
 //                VOIPSDK.getInstance(context).init(it1,"1081",
 //                    User.load(context).uid, "0973385522"," congbt@interits.com", MyAccountListener())
